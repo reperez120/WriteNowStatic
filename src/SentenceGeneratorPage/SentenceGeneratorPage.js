@@ -19,13 +19,16 @@ class SentenceGeneratorPage extends Component {
           verb: [],
           preposition: [],
           location: [],
-          punctation: []
+          punctation: [],
+          loading: false
         };
       }
     
     handleFormSubmit = e => {
 
         e.preventDefault()
+
+        this.setState({ loading: true })
     
         const wordsAPI = 'https://calm-hamlet-15286.herokuapp.com/words?type=';
         const subURL = 'https://calm-hamlet-15286.herokuapp.com/words?type=subject';
@@ -51,7 +54,8 @@ class SentenceGeneratorPage extends Component {
                   firstArticle: 'The',
                   article: 'the',
                   punctation: '.',
-                  locationadjective
+                  locationadjective,
+                  loading: false
               });
           })  
 
@@ -146,6 +150,7 @@ class SentenceGeneratorPage extends Component {
                             Home
                         </button>  
                     </Link> 
+                    {this.state.loading ? <h1>Loading...</h1>: null}
                 <h3>{this.state.firstArticle} {this.state.subjectadjective} {this.state.subject} {this.state.verb} {this.state.preposition} {this.state.article} {this.state.locationadjective} {this.state.location}{this.state.punctation} </h3>  
             </main>
        </div>
