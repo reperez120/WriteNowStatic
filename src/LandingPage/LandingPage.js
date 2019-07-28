@@ -14,10 +14,10 @@ class LandingPage extends Component {
             <h2>A Writing Prompt App</h2>
           </header>
             <main> 
-                <div class='logoImage'>
+                <div className='logoImage'>
                     writing-related image
                 </div>
-                <form class='entry-form'>
+                <form className='entry-form'>
                     <Link to="/sentence-generator">
                         <button type='submit'>Write now!</button> 
                     </Link>   

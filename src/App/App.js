@@ -4,8 +4,8 @@ import { Route, Link } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
-import SentenceGenerator from '../SentenceGenerator/SentenceGenerator';
-import SentenceResults from '../SentenceResults/SentenceResults';
+import SentenceGeneratorPage from '../SentenceGeneratorPage/SentenceGeneratorPage';
+// import SentenceResults from '../SentenceResults/SentenceResults';
 import './App.css';
 
 function App() {
@@ -23,12 +23,12 @@ function App() {
           />
        <Route 
           exact path='/sentence-generator' 
-          component={SentenceGenerator} 
+          component={SentenceGeneratorPage} 
         /> 
-        <Route 
+        {/* <Route 
           exact path='/sentence-results' 
           component={SentenceResults} 
-        /> 
+        />  */}
         </main>
     </div>
   );
