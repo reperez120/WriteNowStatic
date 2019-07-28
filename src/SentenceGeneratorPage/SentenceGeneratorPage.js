@@ -10,6 +10,7 @@ class SentenceGeneratorPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+          firstArticle: '',
           article: '',
           adjective: [],
          subjectadjective: [],
@@ -18,6 +19,7 @@ class SentenceGeneratorPage extends Component {
           verb: [],
           preposition: [],
           location: [],
+          punctation: []
         };
       }
     
@@ -46,7 +48,9 @@ class SentenceGeneratorPage extends Component {
               let locationadjective = locadj.word
 
               this.setState({
+                  firstArticle: 'The',
                   article: 'the',
+                  punctation: '.',
                   locationadjective
               });
           })  
@@ -58,7 +62,6 @@ class SentenceGeneratorPage extends Component {
               let subjectadjective = subadj.word
 
               this.setState({
-                  article: 'the',
                   subjectadjective
               });
           })  
@@ -143,7 +146,7 @@ class SentenceGeneratorPage extends Component {
                             Home
                         </button>  
                     </Link> 
-                <h3>{this.state.article} {this.state.subjectadjective} {this.state.subject} {this.state.verb} {this.state.preposition} {this.state.article} {this.state.locationadjective} {this.state.location} </h3>  
+                <h3>{this.state.firstArticle} {this.state.subjectadjective} {this.state.subject} {this.state.verb} {this.state.preposition} {this.state.article} {this.state.locationadjective} {this.state.location}{this.state.punctation} </h3>  
             </main>
        </div>
       );

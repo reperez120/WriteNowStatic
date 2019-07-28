@@ -1,15 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
 .App {
   text-align: center;
 }
 
+
 html {
-  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
+  font-family: 'Indie Flower', cursive;
   background-color: lightgrey;
+  background-image: url("http://backgrounds.picaboo.com/download/4a/a4/4a4c7b6d71194dcb87c4d6c1073b2d07/collegeruled.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin-top: 2rem;
   margin-bottom: 5rem;
   margin-left: 3rem;
@@ -20,29 +27,37 @@ html {
 
 @media screen and (max-width: 480px) { 
   html {
+    background-image: url("http://backgrounds.picaboo.com/download/4a/a4/4a4c7b6d71194dcb87c4d6c1073b2d07/collegeruled.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover; 
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     margin-top: 1rem;
     margin-bottom: 2rem;
     margin-left: 1rem;
     margin-right: 1rem;
+
     }
 }
 
 h1 {
   text-align: center;
+  font-family: 'Indie Flower', cursive;
   margin-top: 5rem;
   margin-bottom: 2rem;
+  font-size: 3.5rem;
 }
 
 @media screen and (max-width: 480px) { 
   h1 {
     text-align: center;
+    font-family: 'Indie Flower', cursive;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }

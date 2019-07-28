@@ -5,7 +5,6 @@ import {withRouter} from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
 import SentenceGeneratorPage from '../SentenceGeneratorPage/SentenceGeneratorPage';
-// import SentenceResults from '../SentenceResults/SentenceResults';
 import './App.css';
 
 function App() {
@@ -25,10 +24,6 @@ function App() {
           exact path='/sentence-generator' 
           component={SentenceGeneratorPage} 
         /> 
-        {/* <Route 
-          exact path='/sentence-results' 
-          component={SentenceResults} 
-        />  */}
         </main>
     </div>
   );

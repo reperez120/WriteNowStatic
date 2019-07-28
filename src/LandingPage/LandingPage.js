@@ -11,12 +11,11 @@ class LandingPage extends Component {
           <header className='appHeader'>
           <div className='image'>
            </div>
-            <h2>A Writing Prompt App</h2>
           </header>
             <main> 
                 <div className='logoImage'>
-                    writing-related image
                 </div>
+                <h2>A Writing Prompt App</h2>
                 <form className='entry-form'>
                     <Link to="/sentence-generator">
                         <button type='submit'>Write now!</button> 
