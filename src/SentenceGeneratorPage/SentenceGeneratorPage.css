@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 
+SentenceGeneratorPage {
+
+}
+
 h3 {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -8,10 +12,60 @@ h3 {
 
 }
 
-.radio {
+@media only screen and (max-width: 500px) {
+    .radioform {
+      display: flex;
+      flex-direction: row;
+      justify-content: center; 
+
+      padding-bottom: 0rem; 
+    }
+} 
+  
+  .radioform {
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    padding-bottom: 2rem; 
     font-size: 1.5rem;
     font-weight: bold;
-    font-family: 'Indie Flower', cursive;
-    margin-bottom: 2rem;
+    display: flex;
+    /* justify-content: center;  */
 
+  }
+
+  .radio {
+    margin-right: .5rem; 
+  }
+
+  @media only screen and (max-width: 500px) {
+    .radio {
+      display: flex;
+      flex-direction: row;
+    /* justify-content: space-around; */
+      margin-right: 0rem; 
+    }
+} 
+
+input[type="radio"]:hover {
+  box-shadow:0px 0px 10px rgb(55, 77, 119);
 }
+
+input[type="radio"]:hover + label {
+ color: rgb(185, 180, 180);
+}
+
+input[type="radio"]:checked + label {
+ color: rgb(185, 180, 180);
+}
+
+  label {
+    margin-left: 2rem;
+  }
+
+  .download {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
