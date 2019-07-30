@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Marck+Script&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 
 .App {
   text-align: center;
 }
-
 
 html {
   display: flex;
@@ -12,7 +10,6 @@ html {
   align-items: center;
   justify-content: center;
   font-family: 'Indie Flower', cursive;
-  background-color: lightgrey;
   background-image: url("http://backgrounds.picaboo.com/download/4a/a4/4a4c7b6d71194dcb87c4d6c1073b2d07/collegeruled.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -37,7 +34,6 @@ html {
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
-    /* background-color: lightgrey; */
     margin-top: 1rem;
     margin-bottom: 2rem;
     margin-left: 1rem;
