@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Route, Link } from 'react-router-dom';
-import {withRouter} from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Route} from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
 import SentenceGeneratorPage from '../SentenceGeneratorPage/SentenceGeneratorPage';
 import './App.css';
