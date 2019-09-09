@@ -21,8 +21,8 @@ class SentenceGeneratorPage extends Component {
            punctuation: [],
            downloadPromptText: '',
            loading: false
-       }
-   }
+        }
+    }
   
    downloadPrompt = () => {
        const element = document.createElement("a");
@@ -31,31 +31,31 @@ class SentenceGeneratorPage extends Component {
        element.download = "WriteNowPrompt.txt";
        document.body.appendChild(element);
        element.click();
-   }
+    }
   
    handleGenre = e => {
        this.setState({
            genre: e.target.value
        });
-   }
+    }
   
    handleFormSubmit = e => {
        e.preventDefault()
        this.setState({ loading: true })
        const options = {
            method: 'GET',
-       }
+        }
       
-       function formatQueryParams(params) {
+        function formatQueryParams(params) {
            const queryItems = Object.keys(params)
            .map(key => `${encodeURIComponent(key)}=${params[key]}`)
            return queryItems.join('&');
-       }
+        }
       
-      const getWord = (wordType) => {
+        const getWord = (wordType) => {
           console.log('getWord started')
            const params = { type: wordType }
-           if (this.state.genre)
+           if (!this.state.genre === 'wildcard')
            params.genre = this.state.genre
            const query = formatQueryParams(params);
            const api = `${config.API_ENDPOINT}?${query}`;
@@ -84,11 +84,10 @@ class SentenceGeneratorPage extends Component {
            })
        }
  
-const getSentence = () => {
-    console.log('get Sentence started')
-   const promises = [
-       getWord('verb'),
-       getWord('preposition'),
+    const getSentence = () => {
+        const promises = [
+            getWord('verb'),
+            getWord('preposition'),
    ]
    if (this.state.genre === 'wildcard') {
        promises.push(
@@ -97,15 +96,14 @@ const getSentence = () => {
            getWord('loc-adj'),
            getWord('location')
        )
-   }
-       else {
+   } else {
            promises.push(
                getWord('sub-adj'),
                getWord('subject'),
                getWord('loc-adj'),
                getWord('location')
-           )
-       }
+            )
+        }
           
            Promise.all(promises)
            .then(res => {
