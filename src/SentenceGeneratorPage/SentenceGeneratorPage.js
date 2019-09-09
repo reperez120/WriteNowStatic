@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import config from '../config';
+import DownloadPrompt from '../DownloadPrompt/DownloadPrompt';
 import "./SentenceGeneratorPage.css"
  
 class SentenceGeneratorPage extends Component {
@@ -23,24 +24,15 @@ class SentenceGeneratorPage extends Component {
            loading: false
         }
     }
-  
-   downloadPrompt = () => {
-       const element = document.createElement("a");
-       const file = new Blob([document.getElementById('promptDownload').value], { type: 'text/plain' });
-       element.href = URL.createObjectURL(file);
-       element.download = "WriteNowPrompt.txt";
-       document.body.appendChild(element);
-       element.click();
-    }
-  
+ 
    handleGenre = e => {
-       this.setState({
+        this.setState({
            genre: e.target.value
        });
     }
   
    handleFormSubmit = e => {
-       e.preventDefault()
+        e.preventDefault()
        this.setState({ loading: true })
        const options = {
            method: 'GET',
@@ -53,14 +45,11 @@ class SentenceGeneratorPage extends Component {
         }
       
         const getWord = (wordType) => {
-          console.log('getWord started')
            const params = { type: wordType }
            if (this.state.genre !== 'wildcard')
            params.genre = this.state.genre
            const query = formatQueryParams(params);
            const api = `${config.API_ENDPOINT}?${query}`;
-           console.log(api)
-          
            return fetch(api, options)
            .then(res => {
                if (!res.ok)
@@ -127,72 +116,66 @@ class SentenceGeneratorPage extends Component {
            return (
                <div className='SentenceGenerator'>
                <header className='appHeader'>
-               <h2 className='description'>
-               Select a genre. Then click the "write now" button to get a writing prompt in that genre.
-               Select "wild card" or click on the "write now" button without selecting anything to
-               get a sentence that combines elements from all the genres.
-               </h2>
+                    <h2 className='description'>
+                    Select a genre. Then click the "write now" button to get a writing prompt in that genre.
+                    Select "wild card" or click on the "write now" button without selecting anything to
+                    get a sentence that combines elements from all the genres.
+                    </h2>
                </header>
                <form className='radioForm' onSubmit={this.handleFormSubmit}>
-               <fieldset>
-               <legend>literary genre</legend>
-               <div className='radioButtons'>
-               <label className='scifiButton'>
-               <input id="scifi" type="radio" className='radio' value="scifi" name="option"
-               checked={this.state.genre === 'scifi'}
-               onChange={this.handleGenre} />
-               </label>
-               <label className='fantasyButton'>
-               <input id="fantasy" type="radio" className='radio' value="fantasy" name="option"
-               checked={this.state.genre === 'fantasy'}
-               onChange={this.handleGenre} />
-               </label>
-               <label className='horrorButton'>
-               <input id="horror" type="radio" className='radio' value="horror" name="option"
-               checked={this.state.genre === 'horror'}
-               onChange={this.handleGenre} />
-               </label>
-               <label className='westernButton'>
-               <input id="western" type="radio" className='radio' value="western" name="option"
-               checked={this.state.genre === 'western'}
-               onChange={this.handleGenre} />
-              
-               </label>
-               <label className='litButton'>
-               <input id="lit" type="radio" className='radio' value="lit" name="option"
-               checked={this.state.genre === 'lit'}
-               onChange={this.handleGenre} />
-               </label>
-               <label className='wildcardButton'>
-               <input id="wildcard" type="radio" className='radio' value="wildcard" name="option"
-               checked={this.state.genre === 'wildcard'}
-               onChange={this.handleGenre} />
-               </label>
-               </div>
-               <button type='submit' className='writeButton'>
-               Write now!
-               </button>
-               <Link to="/">
-               <button className='homeBotton'>
-               Home
-               </button>
-               </Link>
-               </fieldset>
+                <fieldset>
+                <legend>literary genre</legend>
+                <div className='radioButtons'>
+                <label className='scifiButton'>
+                <input id="scifi" type="radio" className='radio' value="scifi" name="option"
+                checked={this.state.genre === 'scifi'}
+                onChange={this.handleGenre} />
+                </label>
+                <label className='fantasyButton'>
+                <input id="fantasy" type="radio" className='radio' value="fantasy" name="option"
+                checked={this.state.genre === 'fantasy'}
+                onChange={this.handleGenre} />
+                </label>
+                <label className='horrorButton'>
+                <input id="horror" type="radio" className='radio' value="horror" name="option"
+                checked={this.state.genre === 'horror'}
+                onChange={this.handleGenre} />
+                </label>
+                <label className='westernButton'>
+                <input id="western" type="radio" className='radio' value="western" name="option"
+                checked={this.state.genre === 'western'}
+                onChange={this.handleGenre} />
+                
+                </label>
+                <label className='litButton'>
+                <input id="lit" type="radio" className='radio' value="lit" name="option"
+                checked={this.state.genre === 'lit'}
+                onChange={this.handleGenre} />
+                </label>
+                <label className='wildcardButton'>
+                <input id="wildcard" type="radio" className='radio' value="wildcard" name="option"
+                checked={this.state.genre === 'wildcard'}
+                onChange={this.handleGenre} />
+                </label>
+                </div>
+                <button type='submit' className='writeButton'>
+                Write now!
+                </button>
+                <Link to="/">
+                <button className='homeBotton'>
+                Home
+                </button>
+                </Link>
+                </fieldset>
                </form>
                {this.state.loading ? <h1>Loading...</h1> : null}
                <h3 id="promptSentence">
-               {sentence}
+                    {sentence}
                </h3>
-               <div className='DownloadPrompt'>
-               <input
-               id="promptDownload"
-               defaultValue={sentence}
-               />
-               <button className="downloadButton" onClick={this.downloadPrompt}>
-               {this.state.downloadPromptText}
-               </button>
-               </div>
-               <div className='credit'>images by Shane Kearney</div>
+               <DownloadPrompt
+                    sentence = {this.sentence}
+                    downloadPromptText = {this.state.downloadPromptText}
+                />
                </div>
                );
            }

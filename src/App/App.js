@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route} from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
+import DownloadPrompt from '../DownloadPrompt/DownloadPrompt';
 import SentenceGeneratorPage from '../SentenceGeneratorPage/SentenceGeneratorPage';
 import './App.css';
 
@@ -20,6 +21,10 @@ function App() {
        <Route 
           exact path='/sentence-generator' 
           component={SentenceGeneratorPage} 
+        /> 
+        <Route 
+          exact path='/sentence-generator' 
+          component={DownloadPrompt} 
         /> 
         </main>
     </div>
