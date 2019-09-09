@@ -55,7 +55,7 @@ class SentenceGeneratorPage extends Component {
         const getWord = (wordType) => {
           console.log('getWord started')
            const params = { type: wordType }
-           if (!this.state.genre === 'wildcard')
+           if (this.state.genre !== 'wildcard')
            params.genre = this.state.genre
            const query = formatQueryParams(params);
            const api = `${config.API_ENDPOINT}?${query}`;
