@@ -4,7 +4,7 @@ class DownloadPrompt extends Component {
 
     downloadPrompt = () => {
         const element = document.createElement("a");
-        const file = new Blob([document.getElementById('promptDownload').value], { type: 'text/plain' });
+        const file = new Blob([this.props.sentence], { type: 'text/plain' });
         element.href = URL.createObjectURL(file);
         element.download = "WriteNowPrompt.txt";
         document.body.appendChild(element);

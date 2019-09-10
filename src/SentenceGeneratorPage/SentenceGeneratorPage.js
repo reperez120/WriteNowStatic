@@ -112,7 +112,6 @@ class SentenceGeneratorPage extends Component {
       
        render() {
            const sentence = `${this.state.firstArticle} ${this.state.subjectAdjective} ${this.state.subject} ${this.state.verb} ${this.state.preposition} ${this.state.secondArticle} ${this.state.locationAdjective} ${this.state.location}${this.state.punctuation}`
-          
            return (
                <div className='SentenceGenerator'>
                <header className='appHeader'>
@@ -173,7 +172,7 @@ class SentenceGeneratorPage extends Component {
                     {sentence}
                </h3>
                <DownloadPrompt
-                    sentence = {this.sentence}
+                    sentence = {sentence}
                     downloadPromptText = {this.state.downloadPromptText}
                 />
                </div>
